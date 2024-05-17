@@ -66,7 +66,7 @@ namespace ComputerStore.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
         public IActionResult UpdateProduct([FromBody] UpdateProductDTO updatedProductDTO)
         {
             try
@@ -77,9 +77,18 @@ namespace ComputerStore.Controllers
                 }
 
 
-                var updateProductDTO = _mapper.Map<Product>(updatedProductDTO);
+                var productToUpdate = new Product
+                {
+                    ProductId = updatedProductDTO.Id,
+                    Name = updatedProductDTO.Name,
+                    Discription = updatedProductDTO.Discription,
+                    Price = Convert.ToDecimal(updatedProductDTO.Price),
+                    Quantity = updatedProductDTO.Quantity,
+                    
+                };
 
-                if (!_productInterface.UpdateProduct(updateProductDTO))
+
+                if (!_productInterface.UpdateProduct(productToUpdate))
                 {
                     return StatusCode(500, "Something went wrong while updating the product.");
                 }
@@ -91,6 +100,8 @@ namespace ComputerStore.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -107,15 +118,4 @@ namespace ComputerStore.Controllers
 
                 if (!_productInterface.DeleteProduct(id))
                 {
-                    return StatusCode(500, "Something went wrong while deleting the product.");
-                }
-
-                return Ok("Product deleted sucesfuly");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal server error");
-            }
-        }
-    }
-}
+                    return StatusCode(500, "Something went wron

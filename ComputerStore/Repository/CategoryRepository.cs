@@ -1,4 +1,4 @@
-﻿using ComputerStore.Data;
+using ComputerStore.Data;
 using ComputerStore.DTO;
 using ComputerStore.Interfaces;
 using ComputerStore.Models;
@@ -62,8 +62,13 @@ namespace ComputerStore.Repository
         }
         public bool UpdateCategory(Category category)
         {
-            _context.Categories.Update(category);
-            return Save(); 
+            var existingCategory = _context.Categories.Find(category.CategoryId);
+            if (existingCategory != null)
+            {
+                _context.Entry(existingCategory).CurrentValues.SetValues(category);
+                return Save();
+            }
+            return false;
         }
         public bool DeleteCategory(int id)
         {

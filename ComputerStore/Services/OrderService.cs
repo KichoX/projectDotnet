@@ -22,7 +22,6 @@ namespace ComputerStore.Services
         {
             try
             {
-                var discount = 0;
                 if (products.Count <= 0)
                 {
 

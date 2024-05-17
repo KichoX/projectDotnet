@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/kristijanlazarov/Documents/ProjectDotnet/ComputerStore/ComputerStore.csproj": {}
+    "/Users/kristijanlazarov/Documents/present/projectDotnet/ComputerStore/ComputerStore.csproj": {}
   },
   "projects": {
-    "/Users/kristijanlazarov/Documents/ProjectDotnet/ComputerStore/ComputerStore.csproj": {
+    "/Users/kristijanlazarov/Documents/present/projectDotnet/ComputerStore/ComputerStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/kristijanlazarov/Documents/ProjectDotnet/ComputerStore/ComputerStore.csproj",
+        "projectUniqueName": "/Users/kristijanlazarov/Documents/present/projectDotnet/ComputerStore/ComputerStore.csproj",
         "projectName": "ComputerStore",
-        "projectPath": "/Users/kristijanlazarov/Documents/ProjectDotnet/ComputerStore/ComputerStore.csproj",
+        "projectPath": "/Users/kristijanlazarov/Documents/present/projectDotnet/ComputerStore/ComputerStore.csproj",
         "packagesPath": "/Users/kristijanlazarov/.nuget/packages/",
-        "outputPath": "/Users/kristijanlazarov/Documents/ProjectDotnet/ComputerStore/obj/",
+        "outputPath": "/Users/kristijanlazarov/Documents/present/projectDotnet/ComputerStore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/kristijanlazarov/.nuget/NuGet/NuGet.Config"
@@ -64,6 +64,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
             },
